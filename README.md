@@ -115,7 +115,7 @@ O banco de dados é uma parte essencial de uma aplicação. Ele é o responsáve
                 <a href="https://github.com/janainasantana/">
                     <img src="https://ssoucie.github.io/images/giticon2.png" width="27px">
                 </a>
-                <a href="">
+                <a href="https://www.linkedin.com/in/janaina-c-santana">
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" width="27px">
                 </a>
             </td>
