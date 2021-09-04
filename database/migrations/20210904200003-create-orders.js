@@ -10,7 +10,7 @@ module.exports = {
         autoIncrement: true
       },
       status: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.INTEGER,
         allowNull: false
       },
       id_client: {
