@@ -1,6 +1,6 @@
 {
   "name": "luiza-code-omni-channel",
-  "description":"desafio final do curso do Luiza Code - 3º Edição sobre NodeJS com parceria com a Gama Academy. A proposta desse projeto é desenvolver um software para demonstrar os nossos conhecimentos adquiridos durante o curso.",
+  "description": "desafio final do curso do Luiza Code - 3º Edição sobre NodeJS com parceria com a Gama Academy. A proposta desse projeto é desenvolver um software para demonstrar os nossos conhecimentos adquiridos durante o curso.",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/janainasantana/LuizaCodeOmniChannel.git",
@@ -10,8 +10,12 @@
     "start": "nodemon index.js"
   },
   "dependencies": {
+    "@types/node": "^16.7.10",
     "dotenv": "^10.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.37"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
