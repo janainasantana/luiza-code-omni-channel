@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const { Product, Client } = require('./src/models')
 
+
+
 require('dotenv').config()
 
 app.use(express.json())
