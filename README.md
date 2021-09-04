@@ -134,11 +134,11 @@ O banco de dados é uma parte essencial de uma aplicação. Ele é o responsáve
             </td> 
         <!--Jessica Andreoli de Oliveira-->      
             <td align="center">
-                <a href="https://github.com/jessicandreoli">
-                    <img src="https://avatars.githubusercontent.com/u/86085179?v=4" width="100px;" alt="Foto da Jessica Andreoli no Github" style="max-width:100%;">
+                <a href="https://github.com/jessicaandreoli">
+                    <img src="https://avatars.githubusercontent.com/u/86447208?v=4" width="100px;" alt="Foto da Jessica Andreoli no Github" style="max-width:100%;">
                 </a><br><br>
                 <b>Jessica Andreoli</b><br>
-                <a href="https://github.com/jessicandreoli">
+                <a href="https://github.com/jessicaandreoli">
                     <img src="https://ssoucie.github.io/images/giticon2.png" width="27px">
                 </a>
                 <a href="https://www.linkedin.com/in/j%C3%A9ssica-andreoli-de-oliveira-543bb915a">
