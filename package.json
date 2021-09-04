@@ -1,0 +1,18 @@
+{
+  "name": "Luiza-code-omni-channel",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/janainasantana/LuizaCodeOmniChannel.git",
+  "author": "Jessica <jessica.andreoli@yahoo.com.br>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
