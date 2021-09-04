@@ -1,10 +1,7 @@
 const express = require('express')
 const app = express()
-const database = require('./config/database-connect')
-const Client = require('./src/model/client')
-require('dotenv').config()
 
-database.connect()
+require('dotenv').config()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
