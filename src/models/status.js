@@ -3,19 +3,11 @@ module.exports = (sequelize, DataTypes) => {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      allowNull: false
     },
     name: {
       type: DataTypes.STRING(50),
       allowNull: false
-    },
-    createdAt: {
-      type: DataTypes.DATE,
-      defaultValue: new Date()
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      defaultValue: new Date()
     }
   },
     {

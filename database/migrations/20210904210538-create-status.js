@@ -6,19 +6,11 @@ module.exports = {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        allowNull: false
       },
       name: {
         type: DataTypes.STRING(20),
         allowNull: false
-      },
-      createdAt: {
-        type: DataTypes.DATE,
-        defaultValue: new Date()
-      },
-      updatedAt: {
-        type: DataTypes.DATE,
-        defaultValue: new Date()
       }
     })
   },
