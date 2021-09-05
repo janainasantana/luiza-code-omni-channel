@@ -1,10 +1,6 @@
 const express = require('express')
 const app = express()
-const { Product, Client } = require('./src/models')
-
-
-
-
+const { Product, Client, Order, Status, Store } = require('./src/models')
 
 require('dotenv').config()
 
