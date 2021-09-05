@@ -27,7 +27,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       defaultValue: new Date()
     }
-  })
+  },
+    {
+      tableName: 'Clients'
+    })
 
   return Client
 }

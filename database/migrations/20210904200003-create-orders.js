@@ -3,13 +3,13 @@
 module.exports = {
   up: async (queryInterface, DataTypes) => {
 
-    return queryInterface.createTable('Orders', {
+    queryInterface.createTable('Orders', {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      status: {
+      id_status: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
@@ -30,11 +30,41 @@ module.exports = {
         defaultValue: new Date()
       }
     })
+
+    queryInterface.addConstraint('Orders', {
+      type: 'foreign key',
+      fields: ['id_client'],
+      name: 'fk_id_client',
+      references: {
+        table: 'Clients',
+        field: 'id'
+      }
+    })
+
+    queryInterface.addConstraint('Orders', {
+      type: 'foreign key',
+      fields: ['id_status'],
+      name: 'fk_id_status',
+      references: {
+        table: 'Status',
+        field: 'id'
+      }
+    })
+
+    queryInterface.addConstraint('Orders', {
+      type: 'foreign key',
+      fields: ['id_store'],
+      name: 'fk_id_store',
+      references: {
+        table: 'Stores',
+        field: 'id'
+      }
+    })
+
+    return queryInterface
   },
-
-
   down: async queryInterface => {
-    return queryInterface.dropTable('Ordes')
+    return queryInterface.dropTable('Orders')
   }
 };
 
