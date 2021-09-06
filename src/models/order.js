@@ -31,11 +31,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   )
 
-  Order.associate = models => {
-    Order.belongsTo(models.Client);
-    Order.belongsTo(models.Status);
-    Order.belongsTo(models.Store);
-  };
+  // Order.associate = models => {
+  //   Order.belongsTo(models.Client);
+  //   Order.belongsTo(models.Status);
+  //   Order.belongsTo(models.Store);
+  // };
 
   return Order
 }
