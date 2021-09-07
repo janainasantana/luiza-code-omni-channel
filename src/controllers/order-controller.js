@@ -1,5 +1,6 @@
 const { Order } = require("./../models")
 
+//CREATE ORDER
 exports.post = async (req, res) => {
     const data = req.body
 
