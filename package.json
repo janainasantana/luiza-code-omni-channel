@@ -12,6 +12,7 @@
   "dependencies": {
     "cpf-cnpj-validator": "^1.0.3",
     "dotenv": "^10.0.0",
+    "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "mysql2": "^2.3.0",
     "sequelize": "^6.6.5"

@@ -1,5 +1,7 @@
 const { Client } = require('../models')
 const { cpf } = require('cpf-cnpj-validator')
+const {EmailValidator} = require('email-validator')
+
 
 exports.post = async (req, res) => {
   const data = req.body
@@ -31,3 +33,15 @@ cpfValidate = async (varCpf, res) => {
     response(res, 400, `CPF already exists`)
   }
 }
+emailValidate = async (email, res) =>{
+  if (!EmailValidator.validate(email)) {
+     response(res, 400, `email invalid`)
+  }
+  const cliente = await Client.findOne({where: {email:email}})
+  if (client) {
+    response(res, 400, `email already exists`)
+  }
+
+}
+
+
