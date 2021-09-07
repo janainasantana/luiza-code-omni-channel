@@ -49,7 +49,7 @@ exports.patchFinish = async (req, res) => {
 }
 
 exports.getOrdersByClient = async (req, res) => {
-  const clientId = parseInt(req.params.clientId)
+  const clientId = parseInt(req.params.id)
 
   try {
     const orders = await Order.findAll(
