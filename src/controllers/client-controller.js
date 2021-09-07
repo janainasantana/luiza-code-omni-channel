@@ -1,26 +1,25 @@
 const { Client } = require('../models')
-const { cpf } = require('cpf-cnpj-validator')
-const {EmailValidator} = require('email-validator')
-
+const { Cpf } = require('cpf-cnpj-validator')
+const { EmailValidator } = require('email-validator')
 
 exports.post = async (req, res) => {
-  const data = req.body
+  const { name, email, cpf } = req.body
 
-  data.cpf = data.cpf.replace('.', '').replace('.', '').replace('-', '')
+  cpf = cpf.replace('.', '').replace('.', '').replace('-', '')
 
-cpfValidate(data.cpf, res)
-emailValidate(data.email, res)
+  cpfValidate(cpf, res)
+  emailValidate(email, res)
 
-  try {
-    const client = await Client.create({
-      name: data.name,
-      cpf: data.cpf,
-      email: data.email
-    })
-    response(res, 201, client)
-  } catch (error) {
-    response(res, 400, `Cannot save client, error: ${error}`)
+  const client = await Client.create({
+    name: name,
+    cpf: cpf,
+    email: email
+  })
+
+  if (client) {
+    return response(res, 201, client)
   }
+  return response(res, 400, `Cannot save client, error: ${error}`)
 }
 
 response = (res, status, data) => {
@@ -29,22 +28,20 @@ response = (res, status, data) => {
 
 cpfValidate = async (varCpf, res) => {
   if (!cpf.isValid(varCpf)) {
-    response(res, 400, `CPF invalid`)
+    return response(res, 400, `CPF invalid`)
   }
   const client = await Client.findOne({ where: { cpf: varCpf } })
   if (client) {
-    response(res, 400, `CPF already exists`)
+    return response(res, 400, `CPF already exists`)
   }
 }
-emailValidate = async (email, res) =>{
+
+emailValidate = async (email, res) => {
   if (!EmailValidator.validate(email)) {
-     response(res, 400, `email invalid`)
+    return response(res, 400, `email invalid`)
   }
-  const cliente = await Client.findOne({where: {email:email}})
+  const client = await Client.findOne({ where: { email: email } })
   if (client) {
-    response(res, 400, `email already exists`)
+    return response(res, 400, `email already exists`)
   }
-
 }
-
-
