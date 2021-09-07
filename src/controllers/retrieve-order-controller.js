@@ -2,15 +2,22 @@ const { Order } = require("../models")
 
 exports.patch = async (req, res) => {
     const orderId = req.params.id
-    const order = await Order.findByPk(orderId)
-    if (order === null) {
-        return response(res, 404, "Order not found.")
-    } else {
-        order.id_status = 3
-        order.updatedAt = new Date()
-        await order.save()
+    try {
+        const responseCode = await Order.update(
+            {
+                id_status: 3,
+                updatedAt: new Date()
+            },
+            { where: { id: orderId } })
+        if (responseCode[0] === 1) {
+            return response(res, 200, "Order status updated successfully.")
+        } else {
+            return response(res, 404, "Order not found.")
+        }
+
+    } catch (error) {
+        return response(res, 500, "Unexpected error.")
     }
-    return response(res, 200, order)
 }
 
 response = (res, status, data) => {
