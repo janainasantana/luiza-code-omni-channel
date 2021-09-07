@@ -6,8 +6,8 @@ exports.patch = async (req, res) => {
     if (order === null) {
         return response(res, 404, "Order not found.")
     } else {
-        if (order.id_status === 2) {
-            order.id_status = 3
+        if (order.id_status === 1) {
+            order.id_status = 2
             order.updatedAt = new Date()
             await order.save()
             return response(res, 200, order)
@@ -16,7 +16,6 @@ exports.patch = async (req, res) => {
         }
     }
 }
-
 response = (res, status, data) => {
     res.status(status).json(data)
 }

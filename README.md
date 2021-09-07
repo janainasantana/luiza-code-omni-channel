@@ -145,19 +145,6 @@ O banco de dados é uma parte essencial de uma aplicação. Ele é o responsáve
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" width="27px">
                 </a>
             </td>
-        <!--Lidiane Pereira da Silva Felix-->      
-            <td align="center">
-                <a href="https://github.com/LidianeFelix">
-                    <img src="https://avatars.githubusercontent.com/u/88945730?v=4" width="100px;" alt="Foto da Lidiana Felix no Github" style="max-width:100%;">
-                </a><br><br>
-                <b>Lidiana Felix</b><br>
-                <a href="https://github.com/LidianeFelix">
-                    <img src="https://ssoucie.github.io/images/giticon2.png" width="27px">
-                </a>
-                <a href="https://www.linkedin.com/in/lidiane-felix-9283b91b5/">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" width="27px">
-                </a>
-            </td>
         <!--Michele Passos-->      
             <td align="center">
                 <a href="https://github.com/michellecrodrigues">
