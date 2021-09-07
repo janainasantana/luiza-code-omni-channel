@@ -5,15 +5,15 @@ module.exports = {
     return queryInterface.bulkInsert('Status', [
       {
         id: 1,
-        name: 'CREATED',
+        name: 'CRIANDO',
       },
       {
         id: 2,
-        name: 'FINISHED',
+        name: 'REALIZADO',
       },
       {
         id: 3,
-        name: 'WITHDRAWAL',
+        name: 'RETIRADO',
       }
     ]);
   },
