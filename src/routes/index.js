@@ -5,7 +5,8 @@ const StoreRoute = require ("./store-route")
 module.exports = app => {
     ProductRoute(app),
     ClientRoute(app),
-    StoreRoute(app)
-    
+    StoreRoute(app),
+    FinishOrderRoute(app),
+    RetrieveOrderRoute(app),
+    OrderRoute(app)
 }
-
