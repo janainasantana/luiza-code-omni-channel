@@ -1,7 +1,7 @@
 const { Order } = require("../models")
 
 exports.get = async (req, res) => {
-    const clientId = req.params.clientId
+    const clientId = parseInt(req.params.clientId)
     
     try{
         const orders = await Order.findAll({ where: {id_client: clientId}}, 
