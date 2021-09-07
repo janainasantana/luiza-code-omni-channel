@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.bulkInsert('Status', [
       {
         id: 1,
-        name: 'CRIANDO',
+        name: 'CRIADO',
       },
       {
         id: 2,
