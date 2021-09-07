@@ -32,7 +32,7 @@ exports.post = async (req, res) => {
     if (client) {
       return response(res, 201, client)
     }
-  } catch {
+  } catch (error) {
     return response(res, 400, `Cannot save client, error: ${error}`)
   }
 }
