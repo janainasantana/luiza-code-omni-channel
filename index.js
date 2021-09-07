@@ -10,4 +10,3 @@ require('dotenv').config()
 app.listen(process.env.PORT, () => {
   console.log(`app is running in port: ${process.env.PORT}`)
 })
-
