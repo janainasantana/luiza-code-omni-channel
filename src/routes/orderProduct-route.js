@@ -1,5 +1,5 @@
 const OrderProductController = require("./../controllers/orderProduct-controller")
 
 module.exports = (app) => {
-    app.post("/orderProduct", OrderProductController.post)
+    app.post("/orders/:id/products", OrderProductController.post)
 }

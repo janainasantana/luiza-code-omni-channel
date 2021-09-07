@@ -1,5 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
-    const OrderProduct = sequelize.define('OrderProduct', {
+    const OrdersProducts = sequelize.define('OrdersProducts', {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
         id_order: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -8,29 +13,26 @@ module.exports = (sequelize, DataTypes) => {
                 key: 'id'
             }
         },
-
         id_product: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'Orders',
+                model: 'Products',
                 key: 'id'
             }
-
         },
         createdAt: {
             type: DataTypes.DATE,
             defaultValue: new Date()
         },
-
         updatedAt: {
             type: DataTypes.DATE,
             defaultValue: new Date()
         }
     },
         {
-            tableName: 'OrderProduct'
+            tableName: 'OrdersProducts'
         })
 
-    return OrderProduct
+    return OrdersProducts
 }
