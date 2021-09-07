@@ -8,6 +8,9 @@ exports.post = async (req, res) => {
 
   data.cpf = data.cpf.replace('.', '').replace('.', '').replace('-', '')
 
+cpfValidate(data.cpf, res)
+emailValidate(data.email, res)
+
   try {
     const client = await Client.create({
       name: data.name,
