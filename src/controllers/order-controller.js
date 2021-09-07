@@ -5,7 +5,7 @@ exports.post = async (req, res) => {
 
     try {
         const order = await Order.create({
-            id_status: data.id_status,
+            id_status: 1,
             id_client: data.id_client,
             id_store: data.id_store
         })
