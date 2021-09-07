@@ -1,4 +1,4 @@
-const { OrdersProducts, Order, Product } = require("./../models")
+const { OrdersProducts, Order, Product } = require('./../models')
 
 //CREATE ORDER
 exports.post = async (req, res) => {
@@ -35,7 +35,7 @@ exports.patchRetrieve = async (req, res) => {
 exports.patchFinish = async (req, res) => {
   const orderId = req.params.id
   const order = await Order.findByPk(orderId)
-  if (order === null) {
+  if (!order) {
     return response(res, 404, 'Order not found.')
   } else {
     if (order.id_status === 1) {
