@@ -18,14 +18,14 @@
 <div id='proposta'/>
 
 ## 📝 Proposta 
-Este é um repositório referente ao desafio final do curso do Luiza Code - 3º Edição sobre NodeJS com parceria com a Gama Academy.
+Este é um repositório referente ao desafio final do curso do Luiza Code - 3º Edição sobre NodeJS com parceria com a Gama Academy.</br>
 A proposta desse projeto é desenvolver um software para demonstrar os nossos conhecimentos adquiridos durante o curso.
 
 <div id='introducao'/>
  
  ## 💡 Introdução 
- Uma das funcionalidades mais interessantes em um e-commerce é o <i>Omni Channel</i>, ou seja, não há mais diferença entre loja física ou na web. O consumidor pode procurar o produto em uma loja física e comprar pela internet ou vice-versa.
- Basicamente, o cliente Omni Channel é aquele que utiliza de todos os canais simultaneamente, cruzando compras em ambientes físicos e online.
+ Uma das funcionalidades mais interessantes em um e-commerce é o <i>Omni Channel</i>, ou seja, não há mais diferença entre loja física ou na web. O consumidor pode procurar o produto em uma loja física e comprar pela internet ou vice-versa.</br>
+ Resumidamente, o cliente Omni Channel é aquele que utiliza de todos os canais simultaneamente, cruzando compras em ambientes físicos e online.
 
 <div id='objetivo'/>
  
@@ -70,6 +70,8 @@ Para o desenvolvimento do projeto foi utilizado tecnologias adequadas ao context
 [<img title="NodeJS" width="20" src="https://walde.co/wp-content/uploads/2016/09/nodejs_logo.png"> NodeJS](https://nodejs.org/pt-br/): plataforma em que é possível criar aplicações Javascript sem depender de um browser para a execução.
 
 [<img title="MySQL" width="20" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg"> MySQL](https://www.mysql.com/): é um sistema gerenciador de banco de dados relacional de código aberto usado na maioria das aplicações gratuitas para gerir suas bases de dados.
+
+[<img title="Sequelize" width="20" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sequelize/sequelize-original.svg"> Sequelize](https://sequelize.org/): é um ORM (Object-Relational Mapper) para Node. js, ou seja, ele faz o mapeamento de dados relacionais (tabelas, colunas e linhas) para objetos Javascript.
 
 <div id='aplicacao'/>
 
