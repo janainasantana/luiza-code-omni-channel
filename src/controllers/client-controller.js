@@ -1,4 +1,4 @@
-const { Client } = require('./../models')
+const { Client } = require('../models')
 const { cpf } = require('cpf-cnpj-validator')
 
 exports.post = async (req, res) => {
@@ -6,22 +6,28 @@ exports.post = async (req, res) => {
 
   data.cpf = data.cpf.replace('.', '').replace('.', '').replace('-', '')
 
-  if (!cpf.isValid(data.cpf)) {
-    return response(res, 400, `CPF invalid`)
-  }
-
   try {
     const client = await Client.create({
       name: data.name,
       cpf: data.cpf,
       email: data.email
     })
-    return response(res, 201, client)
+    response(res, 201, client)
   } catch (error) {
-    return response(res, 400, `Cannot save client, error: ${error}`)
+    response(res, 400, `Cannot save client, error: ${error}`)
   }
 }
 
 response = (res, status, data) => {
   res.status(status).json(data)
+}
+
+cpfValidate = async (varCpf, res) => {
+  if (!cpf.isValid(varCpf)) {
+    response(res, 400, `CPF invalid`)
+  }
+  const client = await Client.findOne({ where: { cpf: varCpf } })
+  if (client) {
+    response(res, 400, `CPF already exists`)
+  }
 }
