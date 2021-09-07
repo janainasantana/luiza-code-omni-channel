@@ -1,5 +1,5 @@
+const ClientController = require('./../controllers/client-controller')
+
 module.exports = app => {
-    app.get("/clients", () =>{
-        console.log("testando")
-    })
+  app.post('/client', ClientController.post)
 }
