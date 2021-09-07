@@ -75,9 +75,49 @@ Para o desenvolvimento do projeto foi utilizado tecnologias adequadas ao context
 
 ## 💻 Aplicação
 
-🚧 Em desenvolvimento...
+Essas instruções fornecerão uma cópia do projeto instalado e funcionando em sua máquina local para fins de desenvolvimento e teste.
 
-Códigos para executar o projeto...
+### 1º Passo - Clonar o respositório
+Comece clonando esse projeto para a sua máquina local.
+```sh
+git clone https://github.com/janainasantana/luiza-code-omni-channel.git
+cd luiza-code-omni-channel
+```
+
+### 2º Passo - Instalando as dependências
+Para instalar as dependências do projeto, digite o seguinte comando no terminal:
+```sh
+yarn
+```
+
+### 3º Passo - Configurar o ambiente
+Para configurar o ambiente é necessário duplicar o arquivo `.env.example` e renomea-lo somente para `.env`.</br>
+Em seguida, altere as informações desse arquivo `.env` para as informações correspondentes a sua máquina.
+
+### 4º Passo - Criando database
+No seu banco de dados escolhido nas configurações do passo acima, crie um database. </br>
+Esse projeto foi criado utilizando o MySQL, portanto o comando é:
+```mysql
+create database luiza_code;
+```
+
+### 5º Passo - Criando as migrations do banco de dados
+Para criar as migrations do banco de dados para criar o mapeamento do projeto e já ter uma estrutra de relacionamento predefinidos com uma organização de linhas e colunas, digite o seguinte comando no terminal:
+```sh
+npx sequelize-cli db:migrate
+```
+
+### 6º Passo - Criando os seeders do banco de dados
+Para criar os seeders que é para deixar um padrão de preenchimento das tabelas com informações, digite o seguinte comando:
+```sh
+npx sequelize-cli db:seed:all
+```
+
+### 7º Passo - Executando a aplicação
+Depois de tudo configurado, é hora de rodar a nossa aplicação, para executa-la basta digitar o seguinte comando no terminal:
+```sh
+yarn start
+```
 
 <div id='banco'/>
  
