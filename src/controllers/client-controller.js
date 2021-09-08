@@ -2,9 +2,6 @@ const { Client } = require('../models')
 const { cpf } = require('cpf-cnpj-validator')
 const validator = require('email-validator')
 
-const Sequelize = require('sequelize')
-const Op = Sequelize.Op
-
 exports.post = async (req, res) => {
   let data = req.body
 
@@ -21,7 +18,7 @@ exports.post = async (req, res) => {
     if (dbClient) return response(res, 409, `CPF to be unique`)
 
     const dbClientEmail = await Client.findOne({ where: { email: data.email } })
-    if (dbClient) return response(res, 409, `email to be unique`)
+    if (dbClientEmail) return response(res, 409, `email to be unique`)
 
     const client = await Client.create({
       name: data.name,
@@ -35,4 +32,8 @@ exports.post = async (req, res) => {
   } catch (error) {
     return response(res, 400, `Cannot save client, error: ${error}`)
   }
+}
+
+response = (res, status, data) => {
+  res.status(status).json(data)
 }
