@@ -1,6 +1,5 @@
 const { OrdersProducts, Order, Product } = require('./../models')
 
-//CREATE ORDER
 exports.post = async (req, res) => {
   const data = req.body
 
@@ -101,6 +100,32 @@ exports.addProduct = async (req, res) => {
     return response(res, 201, orderProduct)
   } catch (error) {
     return response(res, 400, `Cannot save product, error: ${error}`)
+  }
+}
+
+exports.deleteProduct = async (req, res) => {
+  const orderId = req.params.orderId
+  const productId = req.params.productId
+
+  const order = await Order.findByPk(orderId)
+  if (!order) {
+    return response(res, 404, 'Order not found.')
+  } else {
+    if (order.id_status === 1) {
+      const rows = await OrdersProducts.destroy({
+        where: { id_order: orderId, id_product: productId }
+      })
+      if (rows > 0) {
+        return response(res, 200, 'Product removed')
+      }
+      return response(res, 404, 'Product not found.')
+    } else {
+      return response(
+        res,
+        422,
+        'Cannot remove product when Order status is not created.'
+      )
+    }
   }
 }
 
