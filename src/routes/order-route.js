@@ -6,4 +6,8 @@ module.exports = app => {
   app.patch('/orders/:id/retrieve', OrderController.patchRetrieve)
   app.get('/orders/client/:id', OrderController.getOrdersByClient)
   app.post('/orders/:id/products', OrderController.addProduct)
+  app.delete(
+    '/orders/:orderId/products/:productId',
+    OrderController.deleteProduct
+  )
 }
