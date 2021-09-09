@@ -21,7 +21,7 @@ const doc = {
       cpf: '000.000.000-00',
       email: 'exemplo@exemplo.com'
     },
-    newClient: {
+    NewClient: {
       name: 'Maria',
       cpf: '000.000.000-00',
       email: 'exemplo@exemplo.com'
