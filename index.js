@@ -11,5 +11,6 @@ require('./src/routes/index')(app)
 require('dotenv').config()
 
 app.listen(process.env.PORT, () => {
-  console.log(`app is running in port: ${process.env.PORT}`)
+  console.log(`App is running in http://${process.env.HOST}:${process.env.PORT}`)
+  console.log(`Swagger is running in http://${process.env.HOST}:${process.env.PORT}/doc/#/`)
 })
