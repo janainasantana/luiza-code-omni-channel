@@ -7,7 +7,9 @@
   "author": "Jessica <jessica.andreoli@yahoo.com.br>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node config/swagger && nodemon index.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "seed": "npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:seed:all"
   },
   "dependencies": {
     "cpf-cnpj-validator": "^1.0.3",

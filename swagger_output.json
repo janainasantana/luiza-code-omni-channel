@@ -21,10 +21,36 @@
   "paths": {
     "/client": {
       "post": {
-        "tags": [],
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "tags": [
+          "Client"
+        ],
+        "description": "Endpoint para cadastrar um cliente.",
+        "parameters": [
+          {
+            "name": "newClient",
+            "in": "body",
+            "description": "objeto para cadastrar um cliente",
+            "required": true,
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/NewClient"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/Client"
+            },
+            "description": "Created"
+          },
+          "400": {
+            "description": "Cannot save client, error"
+          },
+          "409": {
+            "description": "email and CPF to be unique"
+          }
+        }
       }
     },
     "/orders": {
@@ -60,105 +86,182 @@
     },
     "/orders/{id}/finish": {
       "patch": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Order"
+        ],
+        "description": "Endpoint atualizar status do pedido para Realizado.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "number",
+            "description": "Id do pedido"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Order"
+            },
+            "description": "OK"
+          },
+          "404": {
+            "description": "Order not found"
+          },
+          "422": {
+            "description": "Order status cannot be updated."
+          }
+        }
       }
     },
     "/orders/{id}/retrieve": {
       "patch": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Order"
+        ],
+        "description": "Endpoint atualizar status do pedido para Retirado.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "number",
+            "description": "Id do pedido"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Order"
+            },
+            "description": "OK"
+          },
+          "404": {
+            "description": "Order not found"
+          },
+          "422": {
+            "description": "Order status cannot be updated."
+          }
+        }
       }
     },
     "/orders/client/{id}": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Order"
+        ],
+        "description": "Endpoint que busca os pedidos do cliente.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "number",
+            "description": "Id do cliente"
           },
           {
             "name": "limit",
-            "in": "query",
-            "type": "string"
+            "description": "Quantidade de pedidos a serem retornados por pagina",
+            "type": "string",
+            "in": "query"
           },
           {
             "name": "offset",
-            "in": "query",
-            "type": "string"
+            "description": "Número da página a ser retornada",
+            "type": "string",
+            "in": "query"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Order"
+            },
+            "description": "OK"
+          },
+          "404": {
+            "description": "We can't find client orders, error."
+          }
+        }
       }
     },
     "/orders/{id}/products": {
       "post": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Order"
+        ],
+        "description": "Endpoint que adiciona produto no pedido.",
         "parameters": [
           {
             "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "obj",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "productId": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {}
-      }
-    },
-    "\r/orders/{orderId}/products/{productId}": {
-      "delete": {
-        "tags": [],
-        "description": "",
-        "parameters": [
-          {
-            "name": "orderId",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "productId",
-            "in": "path",
+            "in": "body",
+            "description": "Id do produto para adicionar no pedido",
             "required": true,
-            "type": "string"
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/NewProduct"
+            }
           }
         ],
-        "responses": {}
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/OrderProduct"
+            },
+            "description": "Created"
+          },
+          "400": {
+            "description": "Cannot save product, error."
+          },
+          "404": {
+            "description": "Product or order not found."
+          },
+          "422": {
+            "description": "Product already exists in this order or order status is not created."
+          }
+        }
+      }
+    },
+    "\r/orders/{orderId}/products/{productId}": {
+      "delete": {
+        "tags": [
+          "Order"
+        ],
+        "description": "Endpoint que remove produto do pedido.",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "type": "int",
+            "description": "Id do pedido."
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "int",
+            "description": "Id do produto a ser removido."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product removed."
+          },
+          "404": {
+            "description": "Product or Order not found."
+          },
+          "422": {
+            "description": "Cannot remove product when Order status is not created."
+          }
+        }
       }
     },
     "/products": {
@@ -264,7 +367,7 @@
         }
       }
     },
-    "newClient": {
+    "NewClient": {
       "type": "object",
       "properties": {
         "name": {
@@ -351,6 +454,40 @@
         "id_client",
         "id_store"
       ]
+    },
+    "NewProduct": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "number",
+          "example": 1
+        }
+      }
+    },
+    "OrderProduct": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "id_order": {
+          "type": "number",
+          "example": 1
+        },
+        "id_product": {
+          "type": "number",
+          "example": 1
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-09T01:13:11.140Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-09T01:13:11.140Z"
+        }
+      }
     }
   }
 }

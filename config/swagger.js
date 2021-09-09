@@ -21,7 +21,7 @@ const doc = {
       cpf: '000.000.000-00',
       email: 'exemplo@exemplo.com'
     },
-    newClient: {
+    NewClient: {
       name: 'Maria',
       cpf: '000.000.000-00',
       email: 'exemplo@exemplo.com'
@@ -51,6 +51,16 @@ const doc = {
     NewOrder: {
       $id_client: 1,
       $id_store: 1
+    },
+    NewProduct: {
+      productId: 1
+    },
+    OrderProduct: {
+      id: 1,
+      id_order: 1,
+      id_product: 1,
+      createdAt: '2021-09-09T01:13:11.140Z',
+      updatedAt: '2021-09-09T01:13:11.140Z',
     }
   }
 }
