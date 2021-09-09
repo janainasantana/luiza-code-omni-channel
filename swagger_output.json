@@ -21,10 +21,36 @@
   "paths": {
     "/client": {
       "post": {
-        "tags": [],
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "tags": [
+          "Client"
+        ],
+        "description": "Endpoint para cadastrar um cliente.",
+        "parameters": [
+          {
+            "name": "newClient",
+            "in": "body",
+            "description": "objeto para cadastrar um cliente",
+            "required": true,
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/NewClient"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/Client"
+            },
+            "description": "Created"
+          },
+          "400": {
+            "description": "Cannot save client, error"
+          },
+          "409": {
+            "description": "email and CPF to be unique"
+          }
+        }
       }
     },
     "/orders": {
@@ -247,7 +273,7 @@
         }
       }
     },
-    "newClient": {
+    "NewClient": {
       "type": "object",
       "properties": {
         "name": {

@@ -3,6 +3,16 @@ const { cpf } = require('cpf-cnpj-validator')
 const validator = require('email-validator')
 
 exports.post = async (req, res) => {
+  // #swagger.tags = ['Client']
+  // #swagger.description = 'Endpoint para cadastrar um cliente.'
+
+  /* #swagger.parameters[newClient'] = {
+      in: 'body',
+      description: 'objeto para cadastrar um cliente',
+      required: true,
+      type: 'object',
+      schema: { $ref: "#/definitions/NewClient" }
+  } */
   let data = req.body
 
   try {
@@ -15,10 +25,17 @@ exports.post = async (req, res) => {
       return response(res, 400, `Email format is invalid`)
 
     const dbClient = await Client.findOne({ where: { cpf: data.cpf } })
-    if (dbClient) return response(res, 409, `CPF to be unique`)
+    if (dbClient) {
+      /* #swagger.responses[409] = { 
+        description: `email and CPF to be unique`
+      } */
+      return response(res, 409, `CPF to be unique`)
+    }
 
     const dbClientEmail = await Client.findOne({ where: { email: data.email } })
-    if (dbClientEmail) return response(res, 409, `email to be unique`)
+    if (dbClientEmail) {
+      return response(res, 409, `email to be unique`)
+    }
 
     const client = await Client.create({
       name: data.name,
@@ -27,9 +44,15 @@ exports.post = async (req, res) => {
     })
 
     if (client) {
+      /* #swagger.responses[201] = { 
+      schema: { $ref: "#/definitions/Client" },
+      } */
       return response(res, 201, client)
     }
   } catch (error) {
+    /* #swagger.responses[400] = { 
+      description: `Cannot save client, error`
+    } */
     return response(res, 400, `Cannot save client, error: ${error}`)
   }
 }
