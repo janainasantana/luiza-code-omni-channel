@@ -33,6 +33,13 @@ const doc = {
       createdAt: '2021-09-05T19:16:54.000Z',
       updatedAt: '2021-09-05T19:16:54.000Z'
     },
+    Product: {
+      id: 1,
+      name: 'Shampoo',
+      price: 11.98,
+      createdAt: '2021-09-05T19:16:54.000Z',
+      updatedAt: '2021-09-05T19:16:54.000Z'
+    },
     Order: {
       createdAt: '2021-09-09T01:13:11.140Z',
       updatedAt: '2021-09-09T01:13:11.140Z',
