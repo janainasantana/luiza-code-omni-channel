@@ -1,6 +1,17 @@
 const { OrdersProducts, Order, Product } = require('./../models')
 
 exports.post = async (req, res) => {
+  // #swagger.tags = ['Order']
+  // #swagger.description = 'Endpoint para criar um pedido.'
+
+  /* #swagger.parameters['NewOrder'] = {
+      in: 'body',
+      description: 'objeto para a criação do pedido',
+      required:true,
+      type: 'object',
+      schema: { $ref: "#/definitions/NewOrder" }
+  } */
+
   const data = req.body
 
   try {
@@ -9,8 +20,14 @@ exports.post = async (req, res) => {
       id_client: data.id_client,
       id_store: data.id_store
     })
+    /* #swagger.responses[201] = { 
+      schema: { $ref: "#/definitions/Order" },
+    } */
     return response(res, 201, order)
   } catch (error) {
+    /* #swagger.responses[400] = { 
+      description: `Cannot save order, error`,
+    } */
     return response(res, 400, `Cannot save order, error: ${error}`)
   }
 }

@@ -1,0 +1,339 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Luiza Code Omni Channel",
+    "description": "Documentação de API para uso da aplicação de Omni Channel",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/client": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/orders": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "description": "Endpoint para criar um pedido.",
+        "parameters": [
+          {
+            "name": "NewOrder",
+            "in": "body",
+            "description": "objeto para a criação do pedido",
+            "required": true,
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/NewOrder"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/Order"
+            },
+            "description": "Created"
+          },
+          "400": {
+            "description": "Cannot save order, error"
+          }
+        }
+      }
+    },
+    "/orders/{id}/finish": {
+      "patch": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/orders/{id}/retrieve": {
+      "patch": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/orders/client/{id}": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/orders/{id}/products": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "\r/orders/{orderId}/products/{productId}": {
+      "delete": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/products": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/stores": {
+      "get": {
+        "tags": [
+          "Store"
+        ],
+        "description": "Endpoint para obter lista de lojas.",
+        "parameters": [
+          {
+            "name": "limit",
+            "description": "Quantidade de registros a serem retornados",
+            "type": "int",
+            "in": "query"
+          },
+          {
+            "name": "offset",
+            "description": "Quantidade de páginas a serem retornadas",
+            "type": "int",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Store"
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Client": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-09T01:22:53.918Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-09T01:22:53.918Z"
+        },
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "Maria"
+        },
+        "cpf": {
+          "type": "string",
+          "example": "000.000.000-00"
+        },
+        "email": {
+          "type": "string",
+          "example": "exemplo@exemplo.com"
+        }
+      }
+    },
+    "newClient": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Maria"
+        },
+        "cpf": {
+          "type": "string",
+          "example": "000.000.000-00"
+        },
+        "email": {
+          "type": "string",
+          "example": "exemplo@exemplo.com"
+        }
+      }
+    },
+    "Store": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "Magazine Luiza loja 01"
+        },
+        "address": {
+          "type": "string",
+          "example": "Rua Benevides 13"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-05T19:16:54.000Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-05T19:16:54.000Z"
+        }
+      }
+    },
+    "Order": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-09T01:13:11.140Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-09T01:13:11.140Z"
+        },
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "id_status": {
+          "type": "number",
+          "example": 1
+        },
+        "id_client": {
+          "type": "number",
+          "example": 1
+        },
+        "id_store": {
+          "type": "number",
+          "example": 1
+        }
+      }
+    },
+    "NewOrder": {
+      "type": "object",
+      "properties": {
+        "id_client": {
+          "type": "number",
+          "example": 1
+        },
+        "id_store": {
+          "type": "number",
+          "example": 1
+        }
+      },
+      "required": [
+        "id_client",
+        "id_store"
+      ]
+    }
+  }
+}
