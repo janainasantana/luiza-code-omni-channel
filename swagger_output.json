@@ -266,21 +266,38 @@
     },
     "/products": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Product"
+        ],
+        "description": "Endpoint para obter lista de produtos.",
         "parameters": [
           {
             "name": "limit",
-            "in": "query",
-            "type": "string"
+            "description": "Quantidade de registros a serem retornados",
+            "type": "int",
+            "in": "query"
           },
           {
             "name": "offset",
-            "in": "query",
-            "type": "string"
+            "description": "Número da posição da página a ser retornada",
+            "type": "int",
+            "in": "query"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "OK"
+          }
+        }
       }
     },
     "/stores": {
