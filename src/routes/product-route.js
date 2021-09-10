@@ -1,5 +1,5 @@
+const ProductController = require ("./../controllers/product-controller")
+
 module.exports = app => {
-    app.get("/products", () =>{
-        console.log("testando")
-    })
+    app.get("/products", ProductController.get)
 }
