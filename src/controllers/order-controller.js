@@ -35,14 +35,14 @@ exports.post = async (req, res) => {
 exports.patchRetrieve = async (req, res) => {
   // #swagger.tags = ['Order']
   // #swagger.description = 'Endpoint atualizar status do pedido para Retirado.'
-  // #swagger.parameters['id'] = { description: 'ID do pedido.' }
+  // #swagger.parameters['orderId'] = { description: 'ID do pedido.' }
 
-  /* #swagger.parameters['id'] = {
+  /* #swagger.parameters['orderId'] = {
     description: 'Id do pedido',
     type: 'number',
   } */
 
-  const orderId = req.params.id
+  const orderId = req.params.orderId
   const order = await Order.findByPk(orderId)
   if (!order) {
     /* #swagger.responses[404] = { 
@@ -69,14 +69,14 @@ exports.patchRetrieve = async (req, res) => {
 exports.patchFinish = async (req, res) => {
   // #swagger.tags = ['Order']
   // #swagger.description = 'Endpoint atualizar status do pedido para Realizado.'
-  // #swagger.parameters['id'] = { description: 'ID do pedido.' }
+  // #swagger.parameters['orderId'] = { description: 'ID do pedido.' }
 
-  /* #swagger.parameters['id'] = {
+  /* #swagger.parameters['orderId'] = {
     description: 'Id do pedido',
     type: 'number',
   } */
   
-  const orderId = req.params.id
+  const orderId = req.params.orderId
   const order = await Order.findByPk(orderId)
   if (!order) {
     /* #swagger.responses[404] = { 
@@ -104,7 +104,7 @@ exports.getOrdersByClient = async (req, res) => {
   // #swagger.tags = ['Order']
   // #swagger.description = 'Endpoint que busca os pedidos do cliente.'
 
-  /* #swagger.parameters['id'] = {
+  /* #swagger.parameters['clientId'] = {
     description: 'Id do cliente',
     type: 'number',
   } */
@@ -119,7 +119,7 @@ exports.getOrdersByClient = async (req, res) => {
     type: 'string',
   } */
 
-  const clientId = parseInt(req.params.id)
+  const clientId = parseInt(req.params.clientId)
 
   try {
     const orders = await Order.findAll(
@@ -154,7 +154,7 @@ exports.addProduct = async (req, res) => {
   } */
 
   const productId = parseInt(req.body.productId)
-  const orderId = parseInt(req.params.id)
+  const orderId = parseInt(req.params.orderId)
 
   try {
     const order = await Order.findByPk(orderId)
@@ -202,18 +202,10 @@ exports.deleteProduct = async (req, res) => {
   // #swagger.tags = ['Order']
   // #swagger.description = 'Endpoint que remove produto do pedido.'
 
-  /* #swagger.parameters['orderId'] = {
-    description: 'Id do pedido.',
-    type: 'int',
-  } */
+  
 
-  /* #swagger.parameters['productId'] = {
-    description: 'Id do produto a ser removido.',
-    type: 'int',
-  } */
-
-  const orderId = req.params.orderId
-  const productId = req.params.productId
+  const orderId = parseInt(req.params.orderId)
+  const productId = parseInt(req.params.productId)
 
   const order = await Order.findByPk(orderId)
   if (!order) {
