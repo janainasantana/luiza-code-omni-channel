@@ -84,7 +84,7 @@
         }
       }
     },
-    "/orders/{id}/finish": {
+    "/orders/{orderId}/finish": {
       "patch": {
         "tags": [
           "Order"
@@ -92,7 +92,7 @@
         "description": "Endpoint atualizar status do pedido para Realizado.",
         "parameters": [
           {
-            "name": "id",
+            "name": "orderId",
             "in": "path",
             "required": true,
             "type": "number",
@@ -115,7 +115,7 @@
         }
       }
     },
-    "/orders/{id}/retrieve": {
+    "/orders/{orderId}/retrieve": {
       "patch": {
         "tags": [
           "Order"
@@ -123,7 +123,7 @@
         "description": "Endpoint atualizar status do pedido para Retirado.",
         "parameters": [
           {
-            "name": "id",
+            "name": "orderId",
             "in": "path",
             "required": true,
             "type": "number",
@@ -146,7 +146,7 @@
         }
       }
     },
-    "/orders/client/{id}": {
+    "/orders/client/{clientId}": {
       "get": {
         "tags": [
           "Order"
@@ -154,7 +154,7 @@
         "description": "Endpoint que busca os pedidos do cliente.",
         "parameters": [
           {
-            "name": "id",
+            "name": "clientId",
             "in": "path",
             "required": true,
             "type": "number",
@@ -186,7 +186,7 @@
         }
       }
     },
-    "/orders/{id}/products": {
+    "/orders/{orderId}/products": {
       "post": {
         "tags": [
           "Order"
@@ -194,7 +194,7 @@
         "description": "Endpoint que adiciona produto no pedido.",
         "parameters": [
           {
-            "name": "id",
+            "name": "orderId",
             "in": "path",
             "required": true,
             "type": "string"
@@ -229,7 +229,7 @@
         }
       }
     },
-    "\r/orders/{orderId}/products/{productId}": {
+    "/orders/{orderId}/products/{productId}": {
       "delete": {
         "tags": [
           "Order"
@@ -240,15 +240,13 @@
             "name": "orderId",
             "in": "path",
             "required": true,
-            "type": "int",
-            "description": "Id do pedido."
+            "type": "string"
           },
           {
             "name": "productId",
             "in": "path",
             "required": true,
-            "type": "int",
-            "description": "Id do produto a ser removido."
+            "type": "string"
           }
         ],
         "responses": {
@@ -398,6 +396,31 @@
         "address": {
           "type": "string",
           "example": "Rua Benevides 13"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-05T19:16:54.000Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-05T19:16:54.000Z"
+        }
+      }
+    },
+    "Product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "Shampoo"
+        },
+        "price": {
+          "type": "number",
+          "example": 11.98
         },
         "createdAt": {
           "type": "string",
