@@ -130,7 +130,7 @@ Depois de tudo configurado, é hora de rodar a nossa aplicação, para executá-
 ```sh
 yarn start
 ```
-Após esse comando o servidor irá inicializar e então aparecerá as mensagens que esse processo foi realizado com sucesso em seguida aparecerá dois links, como na imagem a seguir, sendo um link referente a aplicação e outra ao swagger, um atalho para acessá-las no browser e ter uma melhor visualização basta estar com o mouse sobre o link desejado e digitar `ctrl + click`.
+Após esse comando o servidor irá inicializar e então aparecerá as mensagens que esse processo foi realizado com sucesso em seguida aparecerá dois links, como na imagem a seguir, sendo um link referente a aplicação e outra ao swagger, um atalho para acessá-las no browser e ter uma melhor visualização basta estar com o mouse sobre o link desejado e digitar `ctrl + click`.</br>
 
 <img src='https://raw.githubusercontent.com/janainasantana/luiza-code-omni-channel/main/img/yarn%20start.png?token=AMFSC2NFKMYKTVCKN5UH44DBHOSOG'>
 
