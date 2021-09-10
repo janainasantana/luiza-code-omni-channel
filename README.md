@@ -83,6 +83,8 @@ Essas instruções fornecerão uma cópia do projeto instalado e funcionando em 
 Comece clonando esse projeto para a sua máquina local.
 ```sh
 git clone https://github.com/janainasantana/luiza-code-omni-channel.git
+```
+```sh
 cd luiza-code-omni-channel
 ```
 
@@ -104,19 +106,27 @@ create database luiza_code;
 ```
 
 ### 5º Passo - Criando as migrations do banco de dados
-Para criar as migrations do banco de dados para criar o mapeamento do projeto e já ter uma estrutra de relacionamento predefinidos com uma organização de linhas e colunas, digite o seguinte comando no terminal:
+Para criar as migrations do banco de dados para criar o mapeamento do projeto e já ter uma estrutra de relacionamento predefinidos com uma organização de linhas e colunas, digite o seguinte comando personalizado desse projeto no terminal:
+```sh
+yarn migrate
+```
+ou o comando padrão do migrate:
 ```sh
 npx sequelize-cli db:migrate
 ```
 
 ### 6º Passo - Criando os seeders do banco de dados
-Para criar os seeders que é para deixar um padrão de preenchimento das tabelas com informações, digite o seguinte comando:
+Para criar os seeders que é para deixar um padrão de preenchimento das tabelas com informações, digite o seguinte comando personalizado desse projeto no terminal:
+```sh
+yarn seed
+```
+ou o comando padrão do seeder:
 ```sh
 npx sequelize-cli db:seed:all
 ```
 
 ### 7º Passo - Executando a aplicação
-Depois de tudo configurado, é hora de rodar a nossa aplicação, para executa-la basta digitar o seguinte comando no terminal:
+Depois de tudo configurado, é hora de rodar a nossa aplicação, para executá-la basta digitar o seguinte comando no terminal:
 ```sh
 yarn start
 ```
