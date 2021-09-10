@@ -130,19 +130,19 @@ Depois de tudo configurado, é hora de rodar a nossa aplicação, para executá-
 ```sh
 yarn start
 ```
-Após esse comando o servidor irá inicializar e então aparecerá as mensagens que esse processo foi realizado com sucesso em seguida aparecerá dois links, como na imagem a seguir, sendo um link referente a aplicação e outra ao swagger, um atalho para acessá-las no browser e ter uma melhor visualização basta estar com o mouse sobre o link desejado e digitar `ctrl + click`.</br>
+Após esse comando o servidor irá inicializar e então aparecerá as mensagens que esse processo foi realizado com sucesso em seguida aparecerá dois links, como na imagem a seguir, sendo um link referente a aplicação e outra ao swagger, um atalho para acessá-las no browser e ter uma melhor visualização basta estar com o mouse sobre o link desejado e digitar `ctrl + click`.
 
-<img src='https://raw.githubusercontent.com/janainasantana/luiza-code-omni-channel/main/img/yarn%20start.png?token=AMFSC2NFKMYKTVCKN5UH44DBHOSOG' >
+<img src='https://raw.githubusercontent.com/janainasantana/luiza-code-omni-channel/main/img/yarn%20start.png?token=AMFSC2NFKMYKTVCKN5UH44DBHOSOG'>
 
 
 <div id='banco'/>
  
 ## 🎲 Banco de dados 
 O banco de dados é uma parte essencial de uma aplicação. Ele é o responsável por armazenar os dados que poderão ser transformados em informações importantes para o usuário.</br>
-A imagem abaixo é referente a modelagem do banco de dados desse projeto.</br>
+A imagem abaixo é referente a modelagem do banco de dados desse projeto.
 
 <center>
-<img src='https://raw.githubusercontent.com/janainasantana/luiza-code-omni-channel/main/img/Diagrama%20banco%20de%20dados.png?token=AMFSC2PKBWGWD767MO2RG73BHORS2' >
+<img src='https://raw.githubusercontent.com/janainasantana/luiza-code-omni-channel/main/img/Diagrama%20banco%20de%20dados.png?token=AMFSC2PKBWGWD767MO2RG73BHORS2'>
 </center>
   
 <div id='equipe'/> 
