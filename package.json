@@ -7,13 +7,19 @@
   "author": "Jessica <jessica.andreoli@yahoo.com.br>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node config/swagger && nodemon index.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "seed": "npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:seed:all"
   },
   "dependencies": {
+    "cpf-cnpj-validator": "^1.0.3",
     "dotenv": "^10.0.0",
+    "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "mysql2": "^2.3.0",
-    "sequelize": "^6.6.5"
+    "sequelize": "^6.6.5",
+    "swagger-ui-express": "^4.1.6",
+    "swagger-autogen": "^2.11.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"

@@ -1,0 +1,516 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Luiza Code Omni Channel",
+    "description": "Documentação de API para uso da aplicação de Omni Channel",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/client": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "description": "Endpoint para cadastrar um cliente.",
+        "parameters": [
+          {
+            "name": "newClient",
+            "in": "body",
+            "description": "objeto para cadastrar um cliente",
+            "required": true,
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/NewClient"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/Client"
+            },
+            "description": "Created"
+          },
+          "400": {
+            "description": "Cannot save client, error"
+          },
+          "409": {
+            "description": "email and CPF to be unique"
+          }
+        }
+      }
+    },
+    "/orders": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "description": "Endpoint para criar um pedido.",
+        "parameters": [
+          {
+            "name": "NewOrder",
+            "in": "body",
+            "description": "objeto para a criação do pedido",
+            "required": true,
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/NewOrder"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/Order"
+            },
+            "description": "Created"
+          },
+          "400": {
+            "description": "Cannot save order, error"
+          }
+        }
+      }
+    },
+    "/orders/{orderId}/finish": {
+      "patch": {
+        "tags": [
+          "Order"
+        ],
+        "description": "Endpoint atualizar status do pedido para Realizado.",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "type": "number",
+            "description": "Id do pedido"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Order"
+            },
+            "description": "OK"
+          },
+          "404": {
+            "description": "Order not found"
+          },
+          "422": {
+            "description": "Order status cannot be updated."
+          }
+        }
+      }
+    },
+    "/orders/{orderId}/retrieve": {
+      "patch": {
+        "tags": [
+          "Order"
+        ],
+        "description": "Endpoint atualizar status do pedido para Retirado.",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "type": "number",
+            "description": "Id do pedido"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Order"
+            },
+            "description": "OK"
+          },
+          "404": {
+            "description": "Order not found"
+          },
+          "422": {
+            "description": "Order status cannot be updated."
+          }
+        }
+      }
+    },
+    "/orders/client/{clientId}": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "description": "Endpoint que busca os pedidos do cliente.",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "type": "number",
+            "description": "Id do cliente"
+          },
+          {
+            "name": "limit",
+            "description": "Quantidade de pedidos a serem retornados por pagina",
+            "type": "string",
+            "in": "query"
+          },
+          {
+            "name": "offset",
+            "description": "Número da página a ser retornada",
+            "type": "string",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Order"
+            },
+            "description": "OK"
+          },
+          "404": {
+            "description": "We can't find client orders, error."
+          }
+        }
+      }
+    },
+    "/orders/{orderId}/products": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "description": "Endpoint que adiciona produto no pedido.",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "productId",
+            "in": "body",
+            "description": "Id do produto para adicionar no pedido",
+            "required": true,
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/NewProduct"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/OrderProduct"
+            },
+            "description": "Created"
+          },
+          "400": {
+            "description": "Cannot save product, error."
+          },
+          "404": {
+            "description": "Product or order not found."
+          },
+          "422": {
+            "description": "Product already exists in this order or order status is not created."
+          }
+        }
+      }
+    },
+    "/orders/{orderId}/products/{productId}": {
+      "delete": {
+        "tags": [
+          "Order"
+        ],
+        "description": "Endpoint que remove produto do pedido.",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product removed."
+          },
+          "404": {
+            "description": "Product or Order not found."
+          },
+          "422": {
+            "description": "Cannot remove product when Order status is not created."
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Endpoint para obter lista de produtos.",
+        "parameters": [
+          {
+            "name": "limit",
+            "description": "Quantidade de registros a serem retornados",
+            "type": "int",
+            "in": "query"
+          },
+          {
+            "name": "offset",
+            "description": "Número da posição da página a ser retornada",
+            "type": "int",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/stores": {
+      "get": {
+        "tags": [
+          "Store"
+        ],
+        "description": "Endpoint para obter lista de lojas.",
+        "parameters": [
+          {
+            "name": "limit",
+            "description": "Quantidade de registros a serem retornados",
+            "type": "int",
+            "in": "query"
+          },
+          {
+            "name": "offset",
+            "description": "Quantidade de páginas a serem retornadas",
+            "type": "int",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Store"
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Client": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-09T01:22:53.918Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-09T01:22:53.918Z"
+        },
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "Maria"
+        },
+        "cpf": {
+          "type": "string",
+          "example": "000.000.000-00"
+        },
+        "email": {
+          "type": "string",
+          "example": "exemplo@exemplo.com"
+        }
+      }
+    },
+    "NewClient": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Maria"
+        },
+        "cpf": {
+          "type": "string",
+          "example": "000.000.000-00"
+        },
+        "email": {
+          "type": "string",
+          "example": "exemplo@exemplo.com"
+        }
+      }
+    },
+    "Store": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "Magazine Luiza loja 01"
+        },
+        "address": {
+          "type": "string",
+          "example": "Rua Benevides 13"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-05T19:16:54.000Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-05T19:16:54.000Z"
+        }
+      }
+    },
+    "Product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "Shampoo"
+        },
+        "price": {
+          "type": "number",
+          "example": 11.98
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-05T19:16:54.000Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-05T19:16:54.000Z"
+        }
+      }
+    },
+    "Order": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-09T01:13:11.140Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-09T01:13:11.140Z"
+        },
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "id_status": {
+          "type": "number",
+          "example": 1
+        },
+        "id_client": {
+          "type": "number",
+          "example": 1
+        },
+        "id_store": {
+          "type": "number",
+          "example": 1
+        }
+      }
+    },
+    "NewOrder": {
+      "type": "object",
+      "properties": {
+        "id_client": {
+          "type": "number",
+          "example": 1
+        },
+        "id_store": {
+          "type": "number",
+          "example": 1
+        }
+      },
+      "required": [
+        "id_client",
+        "id_store"
+      ]
+    },
+    "NewProduct": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "number",
+          "example": 1
+        }
+      }
+    },
+    "OrderProduct": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "id_order": {
+          "type": "number",
+          "example": 1
+        },
+        "id_product": {
+          "type": "number",
+          "example": 1
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-09T01:13:11.140Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-09T01:13:11.140Z"
+        }
+      }
+    }
+  }
+}
