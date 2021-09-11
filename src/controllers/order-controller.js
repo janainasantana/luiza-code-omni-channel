@@ -88,19 +88,24 @@ exports.patchFinish = async (req, res) => {
     } */
     return response(res, 404, 'Order not found.')
   } else {
-    if (order.id_status === 1 && orderHasProdut) {
-      order.id_status = 2
-      await order.save()
-      /* #swagger.responses[200] = {
-        schema: { $ref: "#/definitions/Order" },
-      } */
-      return response(res, 200, order)
-    } else {
-      /* #swagger.responses[422] = {
-        description: `Order status cannot be updated.`,
-      } */
-      return response(res, 422, 'Order status cannot be updated.')
+    if(orderHasProdut){
+      if (order.id_status === 1) {
+        order.id_status = 2
+        await order.save()
+        /* #swagger.responses[200] = {
+          schema: { $ref: "#/definitions/Order" },
+        } */
+        return response(res, 200, order)
+      } else {
+        /* #swagger.responses[422] = {
+          description: `Order status cannot be updated.`,
+        } */
+        return response(res, 422, 'Order status cannot be updated.')
+      }
+    } else{
+      return response(res, 422, "Order status cannot be updated. Because it doesn't have any product on the order")
     }
+    
   }
 }
 
