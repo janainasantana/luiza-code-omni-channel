@@ -161,7 +161,7 @@ A imagem abaixo é referente a modelagem do banco de dados desse projeto.
                 <a href="https://github.com/anacarolliny">
                     <img src="https://ssoucie.github.io/images/giticon2.png" width="27px">
                 </a>
-                <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-e-6b075110b/">
+                <a href="https://www.linkedin.com/in/anacarolliny/">
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" width="27px">
                 </a>
             </td>
