@@ -78,13 +78,17 @@ exports.patchFinish = async (req, res) => {
   
   const orderId = req.params.orderId
   const order = await Order.findByPk(orderId)
+  const orderHasProdut = await OrdersProducts.findOne({
+    where: { id_order: orderId }
+  })
+
   if (!order) {
     /* #swagger.responses[404] = { 
       description: `Order not found`,
     } */
     return response(res, 404, 'Order not found.')
   } else {
-    if (order.id_status === 1) {
+    if (order.id_status === 1 && orderHasProdut) {
       order.id_status = 2
       await order.save()
       /* #swagger.responses[200] = {
