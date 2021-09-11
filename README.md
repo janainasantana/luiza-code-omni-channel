@@ -83,6 +83,8 @@ Essas instruções fornecerão uma cópia do projeto instalado e funcionando em 
 Comece clonando esse projeto para a sua máquina local.
 ```sh
 git clone https://github.com/janainasantana/luiza-code-omni-channel.git
+```
+```sh
 cd luiza-code-omni-channel
 ```
 
@@ -104,29 +106,45 @@ create database luiza_code;
 ```
 
 ### 5º Passo - Criando as migrations do banco de dados
-Para criar as migrations do banco de dados para criar o mapeamento do projeto e já ter uma estrutra de relacionamento predefinidos com uma organização de linhas e colunas, digite o seguinte comando no terminal:
+Para criar as migrations do banco de dados para criar o mapeamento do projeto e já ter uma estrutra de relacionamento predefinidos com uma organização de linhas e colunas, digite o seguinte comando personalizado desse projeto no terminal:
+```sh
+yarn migrate
+```
+ou o comando padrão do migrate:
 ```sh
 npx sequelize-cli db:migrate
 ```
 
 ### 6º Passo - Criando os seeders do banco de dados
-Para criar os seeders que é para deixar um padrão de preenchimento das tabelas com informações, digite o seguinte comando:
+Para criar os seeders que é para deixar um padrão de preenchimento das tabelas com informações, digite o seguinte comando personalizado desse projeto no terminal:
+```sh
+yarn seed
+```
+ou o comando padrão do seeder:
 ```sh
 npx sequelize-cli db:seed:all
 ```
 
 ### 7º Passo - Executando a aplicação
-Depois de tudo configurado, é hora de rodar a nossa aplicação, para executa-la basta digitar o seguinte comando no terminal:
+Depois de tudo configurado, é hora de rodar a nossa aplicação, para executá-la basta digitar o seguinte comando no terminal:
 ```sh
 yarn start
 ```
+Após esse comando o servidor irá inicializar e então aparecerá as mensagens que esse processo foi realizado com sucesso em seguida aparecerá dois links, como na imagem a seguir, sendo um link referente a aplicação e outra ao swagger, um atalho para acessá-las no browser e ter uma melhor visualização basta estar com o mouse sobre o link desejado e digitar `ctrl + click`.
+
+<p align="center">
+<img src='https://raw.githubusercontent.com/janainasantana/luiza-code-omni-channel/main/img/yarn%20start.png?token=AMFSC2IMYI6LUWXLQFEE3N3BHOVUS'>
+</p>
 
 <div id='banco'/>
  
 ## 🎲 Banco de dados 
-O banco de dados é uma parte essencial de uma aplicação. Ele é o responsável por armazenar os dados que poderão ser transformados em informações importantes para o usuário.
+O banco de dados é uma parte essencial de uma aplicação. Ele é o responsável por armazenar os dados que poderão ser transformados em informações importantes para o usuário.</br>
+A imagem abaixo é referente a modelagem do banco de dados desse projeto.
 
-🚧 Em desenvolvimento...
+<p align="center">
+<img src='https://raw.githubusercontent.com/janainasantana/luiza-code-omni-channel/main/img/Diagrama%20banco%20de%20dados.png?token=AMFSC2IDXHGMRCPDNXZEPQLBHOVUG'>
+</p>
   
 <div id='equipe'/> 
 
