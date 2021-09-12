@@ -89,7 +89,7 @@
         "tags": [
           "Order"
         ],
-        "description": "Endpoint atualizar status do pedido para Realizado.",
+        "description": "Endpoint para atualizar status do pedido para Realizado.",
         "parameters": [
           {
             "name": "orderId",
@@ -277,7 +277,7 @@
           },
           {
             "name": "offset",
-            "description": "Número da posição da página a ser retornada",
+            "description": "Quantidade de itens a serem desconsiderados",
             "type": "int",
             "in": "query"
           }
@@ -313,7 +313,7 @@
           },
           {
             "name": "offset",
-            "description": "Quantidade de páginas a serem retornadas",
+            "description": "Quantidade de itens a serem desconsiderados",
             "type": "int",
             "in": "query"
           }

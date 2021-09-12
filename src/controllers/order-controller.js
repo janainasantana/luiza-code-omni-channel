@@ -119,12 +119,12 @@ exports.getOrdersByClient = async (req, res) => {
   } */
 
   /* #swagger.parameters['limit'] = {
-    description: 'Quantidade de pedidos a serem retornados por pagina',
+    description: 'Quantidade de pedidos do client a serem retornados por pagina',
     type: 'string',
   } */
 
   /* #swagger.parameters['offset'] = {
-    description: 'Número da página a ser retornada',
+    description: 'Quantidade de pedidos do client a serem desconsiderados da busca',
     type: 'string',
   } */
 
