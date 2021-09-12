@@ -133,7 +133,7 @@ yarn start
 Após esse comando o servidor irá inicializar e então aparecerá as mensagens que esse processo foi realizado com sucesso em seguida aparecerá dois links, como na imagem a seguir, sendo um link referente a aplicação e outra ao swagger, um atalho para acessá-las no browser e ter uma melhor visualização basta estar com o mouse sobre o link desejado e digitar `ctrl + click`.
 
 <p align="center">
-<img src='https://raw.githubusercontent.com/janainasantana/luiza-code-omni-channel/main/img/yarn%20start.png?token=AMFSC2IMYI6LUWXLQFEE3N3BHOVUS'>
+<img src='https://raw.githubusercontent.com/janainasantana/luiza-code-omni-channel/main/img/yarn%20start.png?token=AMFSC2NMUOLURDTCDQVH5Z3BHZPFE' width="300" title="Yarn start">
 </p>
 
 <div id='banco'/>
@@ -143,7 +143,7 @@ O banco de dados é uma parte essencial de uma aplicação. Ele é o responsáve
 A imagem abaixo é referente a modelagem do banco de dados desse projeto.
 
 <p align="center">
-<img src='https://raw.githubusercontent.com/janainasantana/luiza-code-omni-channel/main/img/Diagrama%20banco%20de%20dados.png?token=AMFSC2IDXHGMRCPDNXZEPQLBHOVUG'>
+<img src='https://raw.githubusercontent.com/janainasantana/luiza-code-omni-channel/main/img/Diagrama%20banco%20de%20dados.png?token=AMFSC2MGOOJHN4C4VWF5ZGTBHZPJW' width="500" title="Modelagem do banco de dados">
 </p>
   
 <div id='equipe'/> 
