@@ -136,7 +136,6 @@ Após esse comando o servidor irá inicializar e então aparecerá as mensagens 
 <img src='https://raw.githubusercontent.com/janainasantana/luiza-code-omni-channel/main/img/yarn%20start.png?token=AMFSC2NMUOLURDTCDQVH5Z3BHZPFE' width="300" title="Yarn start">
 </p>
 
-
 <div id='banco'/>
  
 ## 🎲 Banco de dados 

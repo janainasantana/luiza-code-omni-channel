@@ -42,7 +42,7 @@ exports.patchRetrieve = async (req, res) => {
     type: 'number',
   } */
 
-  const orderId = req.params.orderId
+  const orderId = parseInt(req.params.orderId)
   const order = await Order.findByPk(orderId)
   if (!order) {
     /* #swagger.responses[404] = { 
@@ -68,15 +68,15 @@ exports.patchRetrieve = async (req, res) => {
 
 exports.patchFinish = async (req, res) => {
   // #swagger.tags = ['Order']
-  // #swagger.description = 'Endpoint atualizar status do pedido para Realizado.'
+  // #swagger.description = 'Endpoint para atualizar status do pedido para Realizado.'
   // #swagger.parameters['orderId'] = { description: 'ID do pedido.' }
 
   /* #swagger.parameters['orderId'] = {
     description: 'Id do pedido',
     type: 'number',
   } */
-  
-  const orderId = req.params.orderId
+
+  const orderId = parseInt(req.params.orderId)
   const order = await Order.findByPk(orderId)
   if (!order) {
     /* #swagger.responses[404] = { 
@@ -162,7 +162,11 @@ exports.addProduct = async (req, res) => {
       return response(res, 404, 'Cannot add product. Order not found.')
     }
     if (order.id_status !== 1) {
-      return response(res, 422, 'Cannot add product when Order status is not created.')
+      return response(
+        res,
+        422,
+        'Cannot add product when Order status is not created.'
+      )
     }
     const product = await Product.findByPk(productId)
     if (!product) {
@@ -202,8 +206,6 @@ exports.deleteProduct = async (req, res) => {
   // #swagger.tags = ['Order']
   // #swagger.description = 'Endpoint que remove produto do pedido.'
 
-  
-
   const orderId = parseInt(req.params.orderId)
   const productId = parseInt(req.params.productId)
 
@@ -229,7 +231,11 @@ exports.deleteProduct = async (req, res) => {
       /* #swagger.responses[422] = {
         description: `Cannot remove product when Order status is not created.`,
       } */
-      return response(res, 422, 'Cannot remove product when Order status is not created.')
+      return response(
+        res,
+        422,
+        'Cannot remove product when Order status is not created.'
+      )
     }
   }
 }
