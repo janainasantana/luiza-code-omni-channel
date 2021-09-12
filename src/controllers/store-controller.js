@@ -9,7 +9,7 @@ exports.get = async (req, res) => {
   } */
 
   /* #swagger.parameters['offset'] = {
-      description: 'Quantidade de páginas a serem retornadas',
+      description: 'Quantidade de itens a serem desconsiderados da busca',
       type: 'int'
   } */
 
