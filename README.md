@@ -1,4 +1,8 @@
-# 🏪 Omni Channel 
+<p align="center">
+<img src='https://github.com/janainasantana/luiza-code-omni-channel/blob/main/img/Banner%20LuizaCode.gif' title="Banner">
+</p>
+
+># 🏪 Omni Channel
 
 ## índice
 
@@ -6,7 +10,7 @@
 * [Introdução](#introducao)<br>
   * [Objetivo](#objetivo)
   * [Requisitos funcionais](#req_funcional)
-  * [Requisitos não funcionais](#req_naoFuncional)
+  * [Regras de negócio](#regr_negocio)
 * [Tecnologias Utilizadas](#tecnologias)
 * [Aplicação](#aplicacao)
 * [Banco de Dados](#banco)
@@ -49,16 +53,17 @@ A proposta desse projeto é desenvolver um software para demonstrar os nossos co
  - Finalização da compra;
  - Consulta de todas as compras realizadas pelo cliente.
 
-<div id='req_naoFuncional'/>
+<div id='regr_negocio'/>
 
-## ✅ Requisitos não funcionais
-- Performance (volume de milhões de transações por dia)
-- Testes automatizados, integração e unitários
-- Logs/ Rastreabilidade
-- Tratamento de exceção
-- Front-end da aplicação
-- Controle de concorrência na persistência de objetos
-- Autenticação/ Login da API
+## 📝 Regras de negócio
+- Cadastro de CPF e e-mail únicos
+- Validação de CPF e e-mail
+- Somente mudar o status de um pedido para "Finalizado", depois que ele tiver o status de "Criado"
+- Mudar o status para "Retirado", só se ele já passou pelo status de "Finalizado"
+- Não pode incluir no pedido dois ou mais itens do mesmo produto
+- Só pode deletar um produto do pedido se o mesmo ainda estiver com o stuatus de "Criado"
+- Não pode mudar o status do pedido para "Finalizado", se o pedido não conter nenhum produto
+- ...
 
 <div id='tecnologias'/>
  
