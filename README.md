@@ -1,5 +1,5 @@
 <p align="center">
-<img src='https://github.com/janainasantana/luiza-code-omni-channel/blob/main/img/Banner%20LuizaCode.gif' title="Banner">
+<img src='https://github.com/janainasantana/luiza-code-omni-channel/blob/feature/53/img/Banner-LuizaCode-NodeManas.gif' title="Banner">
 </p>
 
 ># 🏪 Omni Channel
