@@ -74,9 +74,21 @@ Para o desenvolvimento do projeto foi utilizado tecnologias adequadas ao context
 
 [<img title="NodeJS" width="20" src="https://walde.co/wp-content/uploads/2016/09/nodejs_logo.png"> NodeJS](https://nodejs.org/pt-br/): plataforma em que é possível criar aplicações Javascript sem depender de um browser para a execução.
 
+[<img title="Nodemon" width="20" src="https://user-images.githubusercontent.com/13700/35731649-652807e8-080e-11e8-88fd-1b2f6d553b2d.png"> Nodemon](https://www.npmjs.com/package/nodemon): módulo é um utilitário que irá monitorar todas as alterações nos arquivos de sua aplicação e reiniciar automaticamente o servidor quando for necessário.
+
+[<img title="Express" width="20" src="https://camo.githubusercontent.com/6686b9ef0e21e13c9e7c846340303765c0f36e40a0490bcad453ea9d0d433ea0/68747470733a2f2f7777772e6d656d656e746f746563682e696e2f6173736574732f696d616765732f69636f6e732f657870726573732e706e67"> Express.js](https://expressjs.com/pt-br/): é um framework para Node.js que fornece recursos mínimos para construção de servidores web.
+
 [<img title="MySQL" width="20" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg"> MySQL](https://www.mysql.com/): é um sistema gerenciador de banco de dados relacional de código aberto usado na maioria das aplicações gratuitas para gerir suas bases de dados.
 
 [<img title="Sequelize" width="20" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sequelize/sequelize-original.svg"> Sequelize](https://sequelize.org/): é um ORM (Object-Relational Mapper) para Node. js, ou seja, ele faz o mapeamento de dados relacionais (tabelas, colunas e linhas) para objetos Javascript.
+
+[<img title="Swagger" width="20" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Swagger-logo.png"> Swagger](https://swagger.io/): é uma aplicação open source que auxilia desenvolvedores nos processos de definir, criar, documentar e consumir APIs REST.
+
+[<img title=".env" width="20" src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.png"> .env](https://www.npmjs.com/package/dotenv): é a ferramenta utilizada para orquestrar as variáveis ambiente de um projeto. 
+
+[cpf-cnpj-validator](https://www.npmjs.com/package/cpf-cnpj-validator): módulo que valida e formata strings de CPF ou CNPJ.
+
+[email-validator](https://www.npmjs.com/package/email-validator): módulo para executar a validação de um endereço de e-mail.
 
 <div id='aplicacao'/>
 
@@ -140,6 +152,10 @@ Após esse comando o servidor irá inicializar e então aparecerá as mensagens 
 <p align="center">
 <img src='https://github.com/janainasantana/luiza-code-omni-channel/blob/main/img/yarn%20start.png' width="300" title="Yarn start">
 </p>
+
+`Swagger`: é uma aplicação open source que auxilia os desenvolvedores nos processos de definir, criar, documentar e consumir APIs REST.
+
+⚠ Para obter mais detalhes sobre o mapeamento de rotas acesse o seguinte [link](https://github.com/janainasantana/luiza-code-omni-channel/blob/feature/53/Mapeamento-das-rotas.md).
 
 <div id='banco'/>
  
