@@ -148,7 +148,7 @@ A imagem abaixo é referente a modelagem do banco de dados desse projeto.
   
 <div id='equipe'/> 
 
-## 👨‍👩‍👧‍👦 Equipe de desevolvimento  
+## 👨‍👩‍👧‍👦 Equipe de desenvolvimento  
 
  <table>
     <tbody>
